@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: action@checkout@v2
-    - name: Run TFLint
+    - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v1
+    - name: Run TFLint
       run: tflint --loglevel debug -f compact
