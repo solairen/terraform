@@ -1,0 +1,14 @@
+name: Terraform lint
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: action@checkout@v2
+    - name: Run TFLint
+      uses: terraform-linters/setup-tflint@v1
+      run: tflint --loglevel debug -f compact
