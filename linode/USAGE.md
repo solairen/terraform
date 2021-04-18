@@ -25,17 +25,17 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| instance\_name | Linode instance name. | `string` | `""` | no |
+| instance\_name | Linode instance name. | `string` | n/a | yes |
+| new\_user | New user name and password. | <pre>object({<br>        name = string<br>        password = string<br>    })</pre> | n/a | yes |
 | os\_system | Linode instance operating system. | `string` | `"linode/ubuntu20.04"` | no |
-| port | SSH port. | `string` | `""` | no |
-| public\_ip | Set public IP that will be allowed to connect to VM. | `string` | `""` | no |
+| port | SSH port. | `number` | `22` | no |
+| public\_ip | Set public IP that will be allowed to connect to VM. | `string` | n/a | yes |
 | region | Linode region. | `string` | `"eu-central"` | no |
-| root\_pass | Root password for Linode instance. | `string` | `""` | no |
-| ssh\_keys | SSH keys to login to Linode instance. | `string` | `""` | no |
-| token | Token to Linode cloud provider. | `string` | `""` | no |
+| root\_pass | Root password for Linode instance. | `string` | n/a | yes |
+| ssh\_keys | SSH keys to login to Linode instance. | `string` | n/a | yes |
+| tags | Create a tag | `string` | n/a | yes |
+| token | Token to Linode cloud provider. | `string` | n/a | yes |
 | type | Linode instance type. | `string` | `"g6-nanode-1"` | no |
-| user\_name | New user name. | `string` | `""` | no |
-| user\_password | Password for the new user. | `string` | `""` | no |
 
 ## Outputs
 
