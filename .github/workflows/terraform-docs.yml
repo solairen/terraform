@@ -3,7 +3,7 @@ on:
   pull_request
 
 jobs:
-  Create_documentation:
+  Create_Linode_documentation:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,3 +16,6 @@ jobs:
         output-file: USAGE.md
         output-method: inject
         git-push: "true"
+        git-commit-message: "Updated Linode Usage.md file"
+        git-push-user-email: ${{ secrets.mail }}
+        git-push-user-name: ${{ github.repository_owner }}
