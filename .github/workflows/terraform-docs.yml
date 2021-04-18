@@ -12,7 +12,7 @@ jobs:
     - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
       uses: terraform-docs/gh-actions@v0.6.0
       with:
-        working-dir: /linode
+        working-dir: linode/
         output-file: USAGE.md
         output-method: inject
         git-push: "true"
