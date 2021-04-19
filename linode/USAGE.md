@@ -42,7 +42,7 @@ No Modules.
 
 | Name | Description |
 |------|-------------|
-| linode\_instance\_name | n/a |
+| linode\_instance\_name | Print Linode instance(s) name(s) and public IP addess(es). |
 
 <!--- END_TF_DOCS --->
 
