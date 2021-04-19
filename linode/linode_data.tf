@@ -40,12 +40,12 @@ variable "root_pass" {
 }
 
 variable "tags" {
-    description = "Create a tag"
+    description = "Create a tag."
     type = string
 }
 
 variable "numbers" {
-    description = "How many Linode instances create"
+    description = "How many Linode instances create."
     type = number
     default = 1
 }
