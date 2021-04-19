@@ -4,6 +4,7 @@ variable "new_user" {
         name = string
         password = string
     })
+    sensitive = true
 }
 
 variable "port" {
