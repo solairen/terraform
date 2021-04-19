@@ -5,11 +5,11 @@ on:
       - "*"
 
 jobs:
-  tflint:
+  TFLint_Linode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v1
     - name: Run TFLint
-      run: tflint --loglevel debug -f compact
+      run: tflint linode/ --loglevel debug -f compact

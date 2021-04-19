@@ -1,22 +1,21 @@
-variable "user_name" {
-    description = "New user name."
-    default = ""
-}
-
-variable "user_password" {
-    description = "Password for the new user."
-    default = ""
+variable "new_user" {
+    description = "New user name and password."
+    type = object({
+        name = string
+        password = string
+    })
     sensitive = true
 }
 
 variable "port" {
     description = "SSH port."
-    default = ""
+    type = number
+    default = 22
     sensitive = true
 }
 
 variable "public_ip" {
     description = "Set public IP that will be allowed to connect to VM."
-    default = ""
+    type = string
     sensitive = true
 }
