@@ -27,6 +27,7 @@ No Modules.
 |------|-------------|------|---------|:--------:|
 | instance\_name | Linode instance name. | `string` | n/a | yes |
 | new\_user | New user name and password. | <pre>object({<br>        name = string<br>        password = string<br>    })</pre> | n/a | yes |
+| numbers | How many Linode instances create | `number` | `1` | no |
 | os\_system | Linode instance operating system. | `string` | `"linode/ubuntu20.04"` | no |
 | port | SSH port. | `number` | `22` | no |
 | public\_ip | Set public IP that will be allowed to connect to VM. | `string` | n/a | yes |
@@ -39,7 +40,9 @@ No Modules.
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| linode\_instance\_name | n/a |
 
 <!--- END_TF_DOCS --->
 
