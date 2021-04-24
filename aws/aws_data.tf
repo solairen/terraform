@@ -26,7 +26,7 @@ variable "aws_instance_number" {
     sensitive = false
 }
 
-variable "aws_instnce_tag" {
+variable "aws_instance_tag" {
     description = "EC2 instance tag."
     type = string
     sensitive = false

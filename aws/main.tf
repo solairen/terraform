@@ -9,7 +9,7 @@ resource "aws_instance" "ec2_instance" {
     ami = var.ami_type
     instance_type = var.aws_instance_type
     tags = {
-        Name = "${var.aws_instnce_tag}-${count.index + 1}"
+        Name = "${var.aws_instance_tag}-${count.index + 1}"
     }
     key_name = var.aws_ssh_key_pairs
 }
