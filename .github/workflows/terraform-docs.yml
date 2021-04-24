@@ -20,6 +20,7 @@ jobs:
         git-push-user-email: ${{ secrets.mail }}
         git-push-user-name: ${{ github.repository_owner }}
   Create_AWS_documentation:
+    needs: Create_Linode_documentation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
