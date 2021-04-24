@@ -3,13 +3,15 @@
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| linode | 1.16.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| linode | n/a |
+| linode | 1.16.0 |
 
 ## Modules
 
@@ -19,7 +21,7 @@ No Modules.
 
 | Name |
 |------|
-| [linode_instance](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/instance) |
+| [linode_instance](https://registry.terraform.io/providers/linode/linode/1.16.0/docs/resources/instance) |
 
 ## Inputs
 
