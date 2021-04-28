@@ -22,6 +22,8 @@ No Modules.
 | Name |
 |------|
 | [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/instance) |
+| [aws_key_pair](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/key_pair) |
+| [aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/security_group) |
 
 ## Inputs
 
@@ -34,7 +36,9 @@ No Modules.
 | aws\_instance\_type | EC2 instance type. | `string` | `"t2.micro"` | no |
 | aws\_region | AWS region. | `string` | `"eu-central-1"` | no |
 | aws\_secret | AWS Secret Key. | `string` | n/a | yes |
-| aws\_ssh\_key\_pairs | AWS key name. | `string` | n/a | yes |
+| aws\_sg\_name | Set AWS Security Group name. | `string` | n/a | yes |
+| my\_public\_ip | Set public ip that will be able to connect to virtual machine. | `string` | n/a | yes |
+| ssh\_aws\_key | Create AWS ssh key. | `string` | n/a | yes |
 
 ## Outputs
 
