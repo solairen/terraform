@@ -32,8 +32,20 @@ variable "aws_instance_tag" {
     sensitive = false
 }
 
-variable "aws_ssh_key_pairs" {
-    description = "AWS key name."
+variable "ssh_aws_key" {
+    description = "Create AWS ssh key."
     type = string
     sensitive = true
+}
+
+variable "my_public_ip" {
+    description = "Set public ip that will be able to connect to virtual machine."
+    type = string
+    sensitive = false
+}
+
+variable "aws_sg_name" {
+    description = "Set AWS Security Group name."
+    type = string
+    sensitive = false
 }

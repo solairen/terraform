@@ -33,6 +33,23 @@ jobs:
           output-file: USAGE.md
           output-method: inject
           git-push: "true"
-          git-commit-message: "Updated Linode Usage.md file"
+          git-commit-message: "Updated AWS Usage.md file"
+          git-push-user-email: ${{ secrets.mail }}
+          git-push-user-name: ${{ github.repository_owner }}
+  Create_Azure_documentation:
+    needs: Create_AWS_documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
+        uses: terraform-docs/gh-actions@v0.6.0
+        with:
+          working-dir: azure/
+          output-file: USAGE.md
+          output-method: inject
+          git-push: "true"
+          git-commit-message: "Updated Azure Usage.md file"
           git-push-user-email: ${{ secrets.mail }}
           git-push-user-name: ${{ github.repository_owner }}
