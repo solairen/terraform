@@ -21,4 +21,12 @@ jobs:
       uses: terraform-linters/setup-tflint@v1
     - name: Run AWS TFLint
       run: tflint aws/ --loglevel debug -f compact
+  TFLint_Azure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v1
+    - name: Run Azure TFLint
+      run: tflint azure/ --loglevel debug -f compact
 

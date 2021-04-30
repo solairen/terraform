@@ -4,4 +4,5 @@ output "ec2_instance_name" {
         aws_instance.ec2_instance.*.tags,
         aws_instance.ec2_instance.*.public_ip
     ]
+    sensitive = false
 }

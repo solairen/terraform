@@ -33,8 +33,15 @@ variable "ssh_keys" {
     sensitive = true
 }
 
-variable "root_pass" {
-    description = "Root password for Linode instance."
+variable "port" {
+    description = "SSH port."
+    type = number
+    default = 22
+    sensitive = true
+}
+
+variable "public_ip" {
+    description = "Set public IP that will be allowed to connect to VM."
     type = string
     sensitive = true
 }
