@@ -63,7 +63,7 @@ resource "azurerm_network_security_group" "azure_network_security_group" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "example" {
+resource "azurerm_network_interface_security_group_association" "azure_network_security_group_association" {
   count = var.numbers
   network_interface_id = azurerm_network_interface.az_network_interface[count.index].id
   network_security_group_id = azurerm_network_security_group.azure_network_security_group.id
