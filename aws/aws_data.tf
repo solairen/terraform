@@ -32,6 +32,12 @@ variable "aws_instance_tag" {
     sensitive = false
 }
 
+variable "ssh_aws_key_name" {
+    description = "Set AWS ssh key name."
+    type = string
+    sensitive = false
+}
+
 variable "ssh_aws_key" {
     description = "Create AWS ssh key."
     type = string
