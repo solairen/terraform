@@ -1,6 +1,13 @@
 name: Generate terraform docs
 on:
-  pull_request
+  push:
+    branches-ignore:
+      - "main"
+      - "master"
+  pull_request:
+    branches-ignore:
+      - "main"
+      - "master"
 
 jobs:
   Create_Linode_documentation:

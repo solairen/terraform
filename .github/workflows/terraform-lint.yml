@@ -1,8 +1,13 @@
 name: Terraform lint
 on:
   push:
-    branches:
-      - "*"
+    branches-ignore:
+      - "main"
+      - "master"
+  pull_request:
+    branches-ignore:
+      - "main"
+      - "master"
 
 jobs:
   TFLint_Linode:
