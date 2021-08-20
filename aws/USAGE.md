@@ -39,6 +39,7 @@ No Modules.
 | aws\_sg\_name | Set AWS Security Group name. | `string` | n/a | yes |
 | my\_public\_ip | Set public ip that will be able to connect to virtual machine. | `string` | n/a | yes |
 | ssh\_aws\_key | Create AWS ssh key. | `string` | n/a | yes |
+| ssh\_aws\_key\_name | Set AWS ssh key name. | `string` | n/a | yes |
 
 ## Outputs
 
