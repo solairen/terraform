@@ -1,0 +1,40 @@
+name: Terraform lint
+on:
+  push:
+    branches-ignore:
+      - "main"
+      - "master"
+  pull_request:
+    branches-ignore:
+      - "main"
+      - "master"
+
+jobs:
+  TFLint_Linode:
+    name: Run terraform-lint on Linode
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v1
+    - name: Run Linode TFLint
+      run: tflint linode/ --loglevel debug -f compact
+  TFLint_AWS:
+    name: Run terraform-lint on AWS
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v1
+    - name: Run AWS TFLint
+      run: tflint aws/ --loglevel debug -f compact
+  TFLint_Azure:
+    name: Run terraform-lint on Azure
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v1
+    - name: Run Azure TFLint
+      run: tflint azure/ --loglevel debug -f compact
+
