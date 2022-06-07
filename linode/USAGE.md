@@ -21,6 +21,7 @@ No Modules.
 
 | Name |
 |------|
+| [linode_firewall](https://registry.terraform.io/providers/linode/linode/1.16.0/docs/resources/firewall) |
 | [linode_instance](https://registry.terraform.io/providers/linode/linode/1.16.0/docs/resources/instance) |
 
 ## Inputs
