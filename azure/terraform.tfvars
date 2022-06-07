@@ -12,6 +12,9 @@ name = ""
 size = "Standard_B1ls"
     })
 virtual_machine_username = ""
-ssh_azure_key = ""
+ssh_azure_key = "~/.ssh/id_rsa.pub"
+ssh_private_key = "~/.ssh/id_rsa"
 my_public_ip = ""
 numbers = 1
+network_security_group = ""
+network_interface = ""

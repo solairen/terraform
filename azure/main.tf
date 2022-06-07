@@ -25,7 +25,7 @@ resource "azurerm_subnet" "az_subnet" {
 
 resource "azurerm_network_interface" "az_network_interface" {
   count = var.numbers
-  name = "mo-test-nic-${count.index + 1}"
+  name = "${var.network_interface}-network-interface-${count.index + 1}"
   location = azurerm_resource_group.az_resource_group.location
   resource_group_name = azurerm_resource_group.az_resource_group.name
 
@@ -46,7 +46,7 @@ resource "azurerm_public_ip" "azure_public_ip" {
 }
 
 resource "azurerm_network_security_group" "azure_network_security_group" {
-  name = "mo-test-network-security-group"
+  name = "${var.network_security_group}-network-security-group"
   location = azurerm_resource_group.az_resource_group.location
   resource_group_name = azurerm_resource_group.az_resource_group.name
 
@@ -108,7 +108,7 @@ resource "azurerm_linux_virtual_machine" "az_vm" {
           type = "ssh"
           host = self.public_ip_address
           user = var.virtual_machine_username
-          private_key = file("~/.ssh/id_rsa")
+          private_key = file(var.ssh_private_key)
       }
       inline = [
           "sudo apt -y update && sudo apt -y upgrade && sudo apt -y autoremove",
