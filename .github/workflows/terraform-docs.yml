@@ -12,7 +12,7 @@ jobs:
     name: Create Linode documentation
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.ref }}
     - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
@@ -30,7 +30,7 @@ jobs:
     needs: Create_Linode_documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
@@ -48,7 +48,7 @@ jobs:
     needs: Create_AWS_documentation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
