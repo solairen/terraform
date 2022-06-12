@@ -61,6 +61,12 @@ variable "ssh_azure_key" {
     sensitive = true
 }
 
+variable "ssh_private_key" {
+    description = "Use private ssh key to connect to virtual machine."
+    type = string
+    sensitive = true
+}
+
 variable "my_public_ip" {
     description = "Set public ip that will be able to connect to virtual machine."
     type = string
@@ -72,4 +78,16 @@ variable "numbers" {
     type = number
     sensitive = false
     default = 1
+}
+
+variable "network_security_group" {
+    description = "Create Azure network security group."
+    type = string
+    sensitive = false
+}
+
+variable "network_interface" {
+    description = "Create Azure network interface."
+    type = string
+    sensitive = false
 }

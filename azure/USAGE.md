@@ -39,11 +39,14 @@ No Modules.
 | azure\_subscription\_id | Azure subscription ID. | `string` | n/a | yes |
 | azure\_tenant\_id | Azure tenant ID. | `string` | n/a | yes |
 | my\_public\_ip | Set public ip that will be able to connect to virtual machine. | `string` | n/a | yes |
+| network\_interface | Create Azure network interface. | `string` | n/a | yes |
+| network\_security\_group | Create Azure network security group. | `string` | n/a | yes |
 | numbers | How many Azure virtual machines create. | `number` | `1` | no |
 | public\_ip | Create Azure public ip. | `string` | n/a | yes |
 | resource\_group | Create Azure resource group. | `string` | n/a | yes |
 | resource\_group\_location | Set Azure resource group location. | `string` | n/a | yes |
 | ssh\_azure\_key | Create Azure ssh key. | `string` | n/a | yes |
+| ssh\_private\_key | Use private ssh key to connect to virtual machine. | `string` | n/a | yes |
 | subnet | Create Azure subnet. | `string` | n/a | yes |
 | subnet\_prefixes | Azure subnet prefixes. | `string` | n/a | yes |
 | virtual\_machine | Create Azure virtual machine. | <pre>object({<br>        name = string<br>        size = string<br>    })</pre> | n/a | yes |
