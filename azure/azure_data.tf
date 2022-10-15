@@ -61,12 +61,6 @@ variable "ssh_azure_key" {
   sensitive   = true
 }
 
-variable "ssh_private_key" {
-  description = "Use private ssh key to connect to virtual machine."
-  type        = string
-  sensitive   = true
-}
-
 variable "my_public_ip" {
   description = "Set public ip that will be able to connect to virtual machine."
   type        = string
