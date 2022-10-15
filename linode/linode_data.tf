@@ -12,7 +12,7 @@ variable "instance_name" {
 variable "os_system" {
   description = "Linode instance operating system."
   type        = string
-  default     = "linode/ubuntu20.04"
+  default     = "linode/ubuntu22.04"
 }
 
 variable "region" {

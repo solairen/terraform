@@ -73,7 +73,7 @@ resource "azurerm_ssh_public_key" "azure_ssh_key" {
   name                = "my-ssh-key"
   resource_group_name = azurerm_resource_group.az_resource_group.name
   location            = azurerm_resource_group.az_resource_group.location
-  public_key          = file("${var.ssh_azure_key}")
+  public_key          = file(var.ssh_azure_key)
 }
 
 resource "azurerm_linux_virtual_machine" "az_vm" {
@@ -101,25 +101,5 @@ resource "azurerm_linux_virtual_machine" "az_vm" {
     offer     = "UbuntuServer"
     sku       = "18.04-LTS"
     version   = "latest"
-  }
-
-  provisioner "remote-exec" {
-    connection {
-      type        = "ssh"
-      host        = self.public_ip_address
-      user        = var.virtual_machine_username
-      private_key = file(var.ssh_private_key)
-    }
-    inline = [
-      "sudo apt -y update && sudo apt -y upgrade && sudo apt -y autoremove",
-      "sudo apt -y install vim apt-transport-https ca-certificates curl gnupg lsb-release",
-      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg",
-      "sudo echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu '$(lsb_release -cs)' stable' | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null",
-      "sudo apt -y update",
-      "sudo apt -y install docker-ce docker-ce-cli containerd.io",
-      "sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config",
-      "sudo systemctl restart sshd",
-      "sudo usermod -aG docker ${var.virtual_machine_username}"
-    ]
   }
 }
