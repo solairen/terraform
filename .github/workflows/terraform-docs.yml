@@ -24,7 +24,7 @@ jobs:
         git-push: "true"
         git-commit-message: "Updated Linode Usage.md file"
         git-push-user-email: ${{ secrets.mail }}
-        git-push-user-name: ${{ github.repository_owner }}
+        git-push-user-name: ${{ secrets.user }}
   Create_AWS_documentation:
     name: Create AWS documentation
     needs: Create_Linode_documentation
@@ -42,7 +42,7 @@ jobs:
           git-push: "true"
           git-commit-message: "Updated AWS Usage.md file"
           git-push-user-email: ${{ secrets.mail }}
-          git-push-user-name: ${{ github.repository_owner }}
+          git-push-user-name: ${{ secrets.user }}
   Create_Azure_documentation:
     name: Create Azure documentation
     needs: Create_AWS_documentation
@@ -60,4 +60,4 @@ jobs:
           git-push: "true"
           git-commit-message: "Updated Azure Usage.md file"
           git-push-user-email: ${{ secrets.mail }}
-          git-push-user-name: ${{ github.repository_owner }}
+          git-push-user-name: ${{ secrets.user }}
