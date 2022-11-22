@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup TFLint
-      uses: terraform-linters/setup-tflint@v2
+      uses: terraform-linters/setup-tflint@v3
     - name: Run Linode TFLint
       run: tflint linode/ -f compact
   TFLint_AWS:
@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup TFLint
-      uses: terraform-linters/setup-tflint@v2
+      uses: terraform-linters/setup-tflint@v3
     - name: Run AWS TFLint
       run: tflint aws/ -f compact
   TFLint_Azure:
@@ -37,7 +37,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup TFLint
-      uses: terraform-linters/setup-tflint@v2
+      uses: terraform-linters/setup-tflint@v3
     - name: Run Azure TFLint
       run: tflint azure/ -f compact
 
