@@ -17,7 +17,7 @@ jobs:
     name: Run terraform-lint on Linode
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v2
     - name: Run Linode TFLint
@@ -26,7 +26,7 @@ jobs:
     name: Run terraform-lint on AWS
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v2
     - name: Run AWS TFLint
@@ -35,7 +35,7 @@ jobs:
     name: Run terraform-lint on Azure
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v2
     - name: Run Azure TFLint
