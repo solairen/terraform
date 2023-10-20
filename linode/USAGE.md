@@ -55,14 +55,13 @@ No Modules.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.3.2 |
-| <a name="requirement_linode"></a> [linode](#requirement\_linode) | 1.29.4 |
+| <a name="requirement_linode"></a> [linode](#requirement\_linode) | ~> 2.9 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_linode"></a> [linode](#provider\_linode) | 1.29.4 |
+| <a name="provider_linode"></a> [linode](#provider\_linode) | ~> 2.9 |
 
 ## Modules
 
@@ -72,8 +71,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [linode_firewall.firewall](https://registry.terraform.io/providers/linode/linode/1.29.4/docs/resources/firewall) | resource |
-| [linode_instance.instance](https://registry.terraform.io/providers/linode/linode/1.29.4/docs/resources/instance) | resource |
+| [linode_firewall.firewall](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/firewall) | resource |
+| [linode_instance.instance](https://registry.terraform.io/providers/linode/linode/latest/docs/resources/instance) | resource |
 
 ## Inputs
 
