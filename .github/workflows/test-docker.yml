@@ -23,4 +23,4 @@ jobs:
         ref: ${{ github.ref }}
         token: ${{ env.GH_TOKEN }}
     - name: Build dockerfile
-      run: docker build -t terraforms -f Dockerfile .
+      run: docker build -t terraforms -f docker/Dockerfile .
