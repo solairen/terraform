@@ -24,12 +24,12 @@ jobs:
       - name: Build and push with tag latest
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile
+          file: docker/Dockerfile
           push: true
           tags: moleszek/terraforms:latest
       - name: Build and push with tag ${{ env.VERSION }}
         uses: docker/build-push-action@v3
         with:
-          file: Dockerfile
+          file: docker/Dockerfile
           push: true
           tags: moleszek/terraforms:${{ env.VERSION }}
