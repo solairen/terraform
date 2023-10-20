@@ -55,14 +55,13 @@ No Modules.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.3.2 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.37.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.21 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.37.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.21 |
 
 ## Modules
 
@@ -72,9 +71,9 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/instance) | resource |
-| [aws_key_pair.aws_ssh_key](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/key_pair) | resource |
-| [aws_security_group.aws_vpc_security_group](https://registry.terraform.io/providers/hashicorp/aws/3.37.0/docs/resources/security_group) | resource |
+| [aws_instance.ec2_instance](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_key_pair.aws_ssh_key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) | resource |
+| [aws_security_group.aws_vpc_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
 
 ## Inputs
 
