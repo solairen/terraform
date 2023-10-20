@@ -51,7 +51,7 @@ resource "azurerm_network_security_group" "azure_network_security_group" {
   resource_group_name = azurerm_resource_group.az_resource_group.name
 
   security_rule {
-    name                       = "ssh_port"
+    name                       = "ssh-port"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"

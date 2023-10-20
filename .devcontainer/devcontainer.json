@@ -1,0 +1,33 @@
+{
+  "name": "terraform-dev",
+  "build": {
+      "dockerfile": "../docker/Dockerfile-dev"
+  },
+  "postCreateCommand": "echo DONE!",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/terraform,type=bind",
+  "workspaceFolder": "/terraform",
+  "remoteUser": "terraform",
+  "features": {
+    "terraform": "latest",
+    "git": "latest",
+    "azure-cli": "latest"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          }
+        }
+      },
+      "extensions": [
+        "hashicorp.terraform",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
