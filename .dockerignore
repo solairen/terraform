@@ -1,0 +1,15 @@
+**.terraform*
+**.tfstate**
+**terraform.tfstate
+**terraform.tfstate.backup
+**.log
+proxmox
+**test
+**.tfplan
+**.git
+**.github
+**.dockerignore
+.devcontainer/devcontainer.json
+docker
+.vscode
+**.gitignore
