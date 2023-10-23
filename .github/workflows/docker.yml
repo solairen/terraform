@@ -22,13 +22,13 @@ jobs:
           username: ${{ env.DOCKER_USER }}
           password: ${{ env.DOCKER_PASS }}
       - name: Build and push with tag latest
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           file: docker/Dockerfile
           push: true
           tags: moleszek/terraforms:latest
       - name: Build and push with tag ${{ env.VERSION }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           file: docker/Dockerfile
           push: true
