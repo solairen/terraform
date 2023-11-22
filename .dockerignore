@@ -10,6 +10,9 @@ proxmox
 **.github
 **.dockerignore
 .devcontainer/devcontainer.json
-docker
+**/Dockerfile*
 .vscode
 **.gitignore
+docker
+**/.github
+**/.vscode
