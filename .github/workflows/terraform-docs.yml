@@ -16,7 +16,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
     - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
-      uses: terraform-docs/gh-actions@v1.2.0
+      uses: terraform-docs/gh-actions@v1.2.2
       with:
         working-dir: linode/
         output-file: USAGE.md
@@ -34,7 +34,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
-        uses: terraform-docs/gh-actions@v1.2.0
+        uses: terraform-docs/gh-actions@v1.2.2
         with:
           working-dir: aws/
           output-file: USAGE.md
@@ -52,7 +52,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
-        uses: terraform-docs/gh-actions@v1.2.0
+        uses: terraform-docs/gh-actions@v1.2.2
         with:
           working-dir: azure/
           output-file: USAGE.md
