@@ -110,7 +110,7 @@ No modules.
 | <a name="input_ssh_azure_key"></a> [ssh\_azure\_key](#input\_ssh\_azure\_key) | Create Azure ssh key. | `string` | n/a | yes |
 | <a name="input_subnet"></a> [subnet](#input\_subnet) | Create Azure subnet. | `string` | n/a | yes |
 | <a name="input_subnet_prefixes"></a> [subnet\_prefixes](#input\_subnet\_prefixes) | Azure subnet prefixes. | `string` | n/a | yes |
-| <a name="input_virtual_machine"></a> [virtual\_machine](#input\_virtual\_machine) | Create Azure virtual machine. | <pre>object({<br>    name = string<br>    size = string<br>  })</pre> | n/a | yes |
+| <a name="input_virtual_machine"></a> [virtual\_machine](#input\_virtual\_machine) | Create Azure virtual machine. | <pre>object({<br/>    name = string<br/>    size = string<br/>  })</pre> | n/a | yes |
 | <a name="input_virtual_machine_username"></a> [virtual\_machine\_username](#input\_virtual\_machine\_username) | Create Azure virtual machine username and password. | `string` | n/a | yes |
 | <a name="input_virtual_network"></a> [virtual\_network](#input\_virtual\_network) | Create Azure virtual network. | `string` | n/a | yes |
 
