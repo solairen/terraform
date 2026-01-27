@@ -1,0 +1,61 @@
+name: Release docker image
+on:
+  milestone:
+    types: [closed]
+
+jobs:
+  release-docker:
+    name: Release docker image
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.TOKEN }}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Build and push to GitHub Container with tag latest
+        uses: docker/build-push-action@v6
+        with:
+          file: docker/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/solairen/terraform:latest
+            ghcr.io/solairen/terraform:${{ github.event.milestone.title }}
+            moleszek/terraforms:latest
+            moleszek/terraforms:${{ github.event.milestone.title }}
+          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Terraform image
+
+  create-release:
+    needs: release-docker
+    name: Create Release
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get Current Date
+        id: get_date
+        run: |
+          date=$(date +'%Y-%m-%d')
+          echo "date=$date" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.event.milestone.title }} (${{ steps.get_date.outputs.date }})
+          tag_name: ${{ github.event.milestone.title }}
+          generate_release_notes: true
+          token: ${{ secrets.TOKEN }}
