@@ -1,9 +1,3 @@
-provider "aws" {
-  region     = var.aws_region
-  access_key = var.aws_access
-  secret_key = var.aws_secret
-}
-
 resource "aws_key_pair" "aws_ssh_key" {
   key_name   = var.ssh_aws_key_name
   public_key = var.ssh_aws_key

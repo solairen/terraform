@@ -1,0 +1,103 @@
+# Pre-commit configuration for Terraform repository
+# https://pre-commit.com/
+#
+# Install pre-commit: pip install pre-commit
+# Install hooks: pre-commit install
+# Run all hooks: pre-commit run --all-files
+
+default_stages: [pre-commit]
+fail_fast: false
+
+repos:
+  # General pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # Prevent commits to protected branches
+      - id: no-commit-to-branch
+        args: ['--branch', 'main', '--branch', 'master']
+
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+
+      # Check for merge conflict strings
+      - id: check-merge-conflict
+
+      # Detect private keys
+      - id: detect-private-key
+
+      # Ensure files end with a newline
+      - id: end-of-file-fixer
+        exclude: '\.tfvars$'
+
+      # Trim trailing whitespace
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+      # Check YAML files syntax
+      - id: check-yaml
+        args: ['--allow-multiple-documents']
+
+      # Check JSON files syntax
+      - id: check-json
+
+      # Check for added large files
+      - id: check-added-large-files
+        args: ['--maxkb=1024']
+
+      # Check for symlinks which point nowhere
+      - id: check-symlinks
+
+      # Check for files with names that would conflict on Windows
+      - id: check-illegal-windows-names
+
+      # Fix byte order marker
+      - id: fix-byte-order-marker
+
+  # Terraform specific hooks
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.105.0
+    hooks:
+      # Format Terraform files
+      - id: terraform_fmt
+
+      # Validate Terraform files
+      - id: terraform_validate
+
+      # Generate documentation for Terraform modules
+      - id: terraform_docs
+        args:
+          - --hook-config=--path-to-file=README.md
+          - --hook-config=--add-to-existing-file=true
+          - --hook-config=--create-file-if-not-exist=true
+
+      # Run tflint
+      - id: terraform_tflint
+        args:
+          - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
+
+      # Check Terraform files for security issues with tfsec
+      - id: terraform_tfsec
+        args:
+          - --args=--minimum-severity=MEDIUM
+
+      # Check Terraform files for security issues with trivy
+      - id: terraform_trivy
+        args:
+          - --args=--severity=HIGH,CRITICAL
+          - --args=--skip-dirs=".terraform"
+
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.47.0
+    hooks:
+      - id: markdownlint
+        args: ['--fix', '--disable', 'MD013', 'MD033', 'MD041', '--']
+
+  # Git commit message linting
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: ['--strict']

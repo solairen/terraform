@@ -49,10 +49,12 @@ variable "public_ip" {
 variable "tags" {
   description = "Create a tag."
   type        = string
+  sensitive   = false
 }
 
 variable "numbers" {
   description = "How many Linode instances create."
   type        = number
   default     = 1
+  sensitive   = false
 }

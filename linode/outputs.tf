@@ -4,4 +4,5 @@ output "linode_instance_name" {
     linode_instance.instance.*.label,
     linode_instance.instance.*.ip_address
   ]
+  sensitive = false
 }
