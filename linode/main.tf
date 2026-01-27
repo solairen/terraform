@@ -1,7 +1,3 @@
-provider "linode" {
-  token = var.token
-}
-
 resource "linode_firewall" "firewall" {
   label = var.instance_name
   tags  = [var.tags]

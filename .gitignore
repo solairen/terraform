@@ -1,6 +1,55 @@
-.terraform*
-*.tfstate*
+# Terraform state and lock files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Terraform plan files
+*.tfplan
+
+# Terraform logs
+crash.log
+crash.*.log
 *.log
-proxmox
-test
-**.tfplan
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Sensitive variable files (do not commit secrets)
+*.auto.tfvars
+*secret*
+*.pem
+*.key
+
+# Local directories
+proxmox/
+test/
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Pre-commit cache
+.pre-commit-cache/
+
+# TFLint plugin cache
+.tflint.d/
