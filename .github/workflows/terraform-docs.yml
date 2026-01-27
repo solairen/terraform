@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Render Linode terraform docs
         uses: terraform-docs/gh-actions@v1.4.1
@@ -27,6 +28,7 @@ jobs:
           output-file: USAGE.md
           output-method: inject
           git-push: "false"
+          fail-on-diff: "false"
 
       - name: Render AWS terraform docs
         uses: terraform-docs/gh-actions@v1.4.1
@@ -35,6 +37,7 @@ jobs:
           output-file: USAGE.md
           output-method: inject
           git-push: "false"
+          fail-on-diff: "false"
 
       - name: Render Azure terraform docs
         uses: terraform-docs/gh-actions@v1.4.1
@@ -43,6 +46,7 @@ jobs:
           output-file: USAGE.md
           output-method: inject
           git-push: "false"
+          fail-on-diff: "false"
 
       - name: Push documentation changes
         run: |
