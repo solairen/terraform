@@ -48,6 +48,9 @@ jobs:
           git-push: "false"
           fail-on-diff: "false"
 
+      - name: Fix .git permissions
+        run: sudo chown -R $USER:$USER .git
+
       - name: Push documentation changes
         run: |
           git config user.email "${{ secrets.mail }}"
@@ -58,4 +61,5 @@ jobs:
           else
             git commit -m "Updated Terraform documentation"
             git push
+          fi
           fi
