@@ -8,56 +8,46 @@ on:
       - "main"
 
 jobs:
-  Create_Linode_documentation:
-    name: Create Linode documentation
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
-    - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
-      uses: terraform-docs/gh-actions@v1.4.1
-      with:
-        working-dir: linode/
-        output-file: USAGE.md
-        output-method: inject
-        git-push: "true"
-        git-commit-message: "Updated Linode Usage.md file"
-        git-push-user-email: ${{ secrets.mail }}
-        git-push-user-name: ${{ secrets.user }}
-  Create_AWS_documentation:
-    name: Create AWS documentation
-    needs: Create_Linode_documentation
+  generate_documentation:
+    name: Generate Terraform documentation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
+
+      - name: Render Linode terraform docs
+        uses: terraform-docs/gh-actions@v1.4.1
+        with:
+          working-dir: linode/
+          output-file: USAGE.md
+          output-method: inject
+          git-push: "false"
+
+      - name: Render AWS terraform docs
         uses: terraform-docs/gh-actions@v1.4.1
         with:
           working-dir: aws/
           output-file: USAGE.md
           output-method: inject
-          git-push: "true"
-          git-commit-message: "Updated AWS Usage.md file"
-          git-push-user-email: ${{ secrets.mail }}
-          git-push-user-name: ${{ secrets.user }}
-  Create_Azure_documentation:
-    name: Create Azure documentation
-    needs: Create_AWS_documentation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Render terraform docks inside the USAGE.md and push changes back to PR branch
+          git-push: "false"
+
+      - name: Render Azure terraform docs
         uses: terraform-docs/gh-actions@v1.4.1
         with:
           working-dir: azure/
           output-file: USAGE.md
           output-method: inject
-          git-push: "true"
-          git-commit-message: "Updated Azure Usage.md file"
-          git-push-user-email: ${{ secrets.mail }}
-          git-push-user-name: ${{ secrets.user }}
+          git-push: "false"
+
+      - name: Push documentation changes
+        run: |
+          git config user.email "${{ secrets.mail }}"
+          git config user.name "${{ secrets.user }}"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Updated Terraform documentation"
+            git push
+          fi
